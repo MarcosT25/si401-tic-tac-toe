@@ -1,5 +1,7 @@
 var count = 0;
 var win = 0;
+var player = 0;
+var score = [0, 0]
 
 var table = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -22,11 +24,14 @@ function myFunc() {
 }
 
 for (var i = 0; i < squares.length; i++) {
+    squares[i].width = 150;
+    squares[i].height = 150;
     squares[i].addEventListener("click", myFunc, false);
 }
 
 document.getElementById("reset").addEventListener("click", () => {
-    count = 0;
+    player++;
+    count = player%2;
     win = 0;
     document.getElementById("champion").innerHTML = "";
     for (var i = 0; i < squares.length; i++) {
@@ -39,25 +44,21 @@ document.getElementById("reset").addEventListener("click", () => {
 function checkResult() {
     for (let i = 0; i < 9; i+=3) {
         if (table[i] == table[i + 1] && table[i] == table[i + 2] && table[i] != 0) {
-            console.log("O jogador " + table[i] + " ganhou");
             win = 1;
             document.getElementById("champion").innerHTML = "O jogador " + table[i] + " ganhou";
         }
     }
     for (let i = 0; i < 3; i++) {
         if (table[i] == table[i + 3] && table[i] == table[i + 6] && table[i] != 0) {
-            console.log("O jogador " + table[i] + " ganhou");
             win = 1;
             document.getElementById("champion").innerHTML = "O jogador " + table[i] + " ganhou";
         }
     }
     if (table[0] == table[4] && table[0] == table[8] && table[0] != 0) {
-        console.log("O jogador " + table[0] + " ganhou");
         win = 1;
         document.getElementById("champion").innerHTML = "O jogador " + table[0] + " ganhou";
     }
     if (table[2] == table[4] && table[2] == table[6] && table[2] != 0) {
-        console.log("O jogador " + table[2] + " ganhou");
         win = 1;
         document.getElementById("champion").innerHTML = "O jogador " + table[2] + " ganhou";
     }
@@ -68,7 +69,6 @@ function checkResult() {
         }
     }
     if (!win && draw) {
-        console.log("Empatou");
         document.getElementById("champion").innerHTML = "Empatou"
     }
 }
@@ -76,21 +76,21 @@ function checkResult() {
 function drawX(ctx) {
     ctx.beginPath();
     ctx.moveTo(30, 30);
-    ctx.lineTo(170, 170);
-    ctx.moveTo(30, 170);
-    ctx.lineTo(170, 30);
+    ctx.lineTo(120, 120);
+    ctx.moveTo(30, 120);
+    ctx.lineTo(120, 30);
     ctx.lineWidth = 5;
     ctx.strokeStyle = "blue";
     ctx.stroke();
 }
 function drawO(ctx) {
     ctx.beginPath();
-    ctx.arc(100, 100, 65, 0, 2*Math.PI);
+    ctx.arc(75, 75, 50, 0, 2*Math.PI);
     ctx.lineWidth = 5;
     ctx.strokeStyle = "red";
     ctx.stroke();
 }
 function drawBlank(ctx) {
     ctx.beginPath();
-    ctx.clearRect(0, 0, 200, 200);
+    ctx.clearRect(0, 0, 150, 150);
 }

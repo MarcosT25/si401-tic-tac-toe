@@ -7,7 +7,16 @@
     <link rel="stylesheet" href="styles.css">
     <title>Login</title>
 </head>
-<body> 
-    <form action=""></form>
+<body>
+    <div id="wrapper">
+        <h1>Jogo da Velha</h1>
+        <form action="index.html" name="myForm" onsubmit="return getPlayers()">
+            <p>Insira o nome dos jogadores: </p>
+            <input class="player" type="text" name="player1" placeholder="Jogador 1">
+            <input class="player" type="text" name="player2" placeholder="Jogador 2">
+            <input class="button" type="submit" value="Jogar">
+        </form> 
+    </div>
+    <script src="app/login.js"></script>
 </body>
 </html>

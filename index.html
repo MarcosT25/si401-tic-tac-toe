@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="styles.css">
     <title>Tic Tac Toe</title>
 </head>
-<body> 
-    <div id="table">
-        <canvas id="0"></canvas>
-        <canvas id="1"></canvas>
-        <canvas id="2"></canvas>
-        <canvas id="3"></canvas>
-        <canvas id="4"></canvas>
-        <canvas id="5"></canvas>
-        <canvas id="6"></canvas>
-        <canvas id="7"></canvas>
-        <canvas id="8"></canvas>
+<body>
+    <div id="wrapper">
+        <div id="table">
+            <canvas id="0"></canvas>
+            <canvas id="1"></canvas>
+            <canvas id="2"></canvas>
+            <canvas id="3"></canvas>
+            <canvas id="4"></canvas>
+            <canvas id="5"></canvas>
+            <canvas id="6"></canvas>
+            <canvas id="7"></canvas>
+            <canvas id="8"></canvas>
+        </div>
+        <div id="navigation">
+            <a id="reset" class="button">Recomeçar</a>
+            <a id="back" class="button" href="login.html">Voltar</a>
+        </div>
+        <p id="info"></p>
+        <p id="score"></p>
     </div>
-    <a id="reset" class="button">Recomeçar</a>
-    <p id="champion"></p>
-    <script src="index.js"></script>
+    <script src="app/index.js"></script>
 </body>
 </html>
